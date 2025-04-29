@@ -61,8 +61,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, menuRef }) => 
             <dialog
                 ref={menuRef}
                 className={`fixed inset-y-0 right-0 m-0 p-0 w-72 max-w-[72vw] h-full border-none
-                    bg-transparent shadow-none outline-none ${dialogClass} md:hidden`}
+                    bg-transparent shadow-none outline-none z-50 ${dialogClass} md:hidden`}
                 aria-labelledby={titleId}
+                aria-modal="true"
             >
                 <div
                     className={`w-full h-full transform ${transitionClass} 
