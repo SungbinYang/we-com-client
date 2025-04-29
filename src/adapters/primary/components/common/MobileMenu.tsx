@@ -2,6 +2,7 @@ import React, {memo, RefObject, useEffect, useRef} from 'react';
 import { IoClose } from 'react-icons/io5';
 import MenuItem from './MenuItem.tsx';
 import { MENU_ITEMS } from '../../constant/menuItems.ts';
+import dialogPolyfill from "dialog-polyfill";
 
 interface MobileMenuProps {
     isOpen: boolean;
@@ -21,6 +22,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, menuRef }) => 
         if (!menuRef.current) return;
 
         const dialogElement = menuRef.current;
+
+        try {
+            dialogPolyfill.registerDialog(dialogElement);
+        } catch (e) {
+            console.error(e);
+        }
 
         if (isOpen) {
             if (!dialogElement.open) {

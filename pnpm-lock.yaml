@@ -11,6 +11,9 @@ importers:
       axios:
         specifier: ^1.8.4
         version: 1.8.4
+      dialog-polyfill:
+        specifier: ^0.5.6
+        version: 0.5.6
       react:
         specifier: ^19.0.0
         version: 19.1.0
@@ -779,6 +782,9 @@ packages:
   detect-libc@2.0.3:
     resolution: {integrity: sha512-bwy0MGW55bG41VqxxypOsdSdGqLwXPI/focwgTYCFMbdUiBAxLg9CFzG08sz2aqzknwiX7Hkl0bQENjg8iLByw==}
     engines: {node: '>=8'}
+
+  dialog-polyfill@0.5.6:
+    resolution: {integrity: sha512-ZbVDJI9uvxPAKze6z146rmfUZjBqNEwcnFTVamQzXH+svluiV7swmVIGr7miwADgfgt1G2JQIytypM9fbyhX4w==}
 
   dunder-proto@1.0.1:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
@@ -2044,6 +2050,8 @@ snapshots:
   delayed-stream@1.0.0: {}
 
   detect-libc@2.0.3: {}
+
+  dialog-polyfill@0.5.6: {}
 
   dunder-proto@1.0.1:
     dependencies:

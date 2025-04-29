@@ -40,13 +40,10 @@ const setupBaseInterceptors = (instance: AxiosInstance): void => {
 
                 if (status === 401) {
                     toast.error('인증이 필요합니다.');
-                }
-
-                if (status === 403) {
+                    window.location.href = '/login';
+                } else if (status === 403) {
                     toast.error('접근 권한이 없습니다.');
-                }
-
-                if (status >= 500) {
+                } else if (status >= 500) {
                     toast.error('서버 에러가 발생했습니다.');
                 }
             } else if (error.request) {
