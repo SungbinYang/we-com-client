@@ -1,4 +1,5 @@
 import axios, {AxiosError, AxiosInstance} from "axios";
+import {toast} from "react-toastify";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -38,20 +39,22 @@ const setupBaseInterceptors = (instance: AxiosInstance): void => {
                 const status = error.response.status;
 
                 if (status === 401) {
-                    console.error('인증이 필요합니다.');
+                    toast.error('인증이 필요합니다.');
                 }
 
                 if (status === 403) {
-                    console.error('접근 권한이 없습니다.');
+                    toast.error('접근 권한이 없습니다.');
                 }
 
                 if (status >= 500) {
-                    console.error('서버 에러가 발생했습니다.');
+                    toast.error('서버 에러가 발생했습니다.');
                 }
             } else if (error.request) {
-                console.error('서버로부터 응답이 없습니다.');
+                toast.error('서버로부터 응답이 없습니다.');
+
             } else {
-                console.error('요청 설정 중 에러가 발생했습니다:', error.message);
+                toast.error('요청 설정 중 에러가 발생했습니다.');
+                console.error(error.message);
             }
 
             return Promise.reject(error);

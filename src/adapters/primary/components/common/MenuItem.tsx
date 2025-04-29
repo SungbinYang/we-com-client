@@ -1,5 +1,6 @@
 import {FC, memo} from 'react';
 import {MenuItem as MenuItemType} from '../../constant/menuItems.ts';
+import {useLocation} from "react-router-dom";
 
 interface MenuItemProps {
     item: MenuItemType;
@@ -9,6 +10,7 @@ interface MenuItemProps {
 
 const MenuItem: FC<MenuItemProps> = ({item, isMobile = false, onClick}) => {
     const {label, path, icon: Icon} = item;
+    const location = useLocation();
 
     const isSignUp = path === '/signup';
 

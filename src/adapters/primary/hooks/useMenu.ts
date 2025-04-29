@@ -25,7 +25,7 @@ export const useMenu = ({
 
     useEffect(() => {
         let originalStyle = '';
-        if (preventScroll) {
+        if (preventScroll && isOpen) {
             originalStyle = document.body.style.overflow;
             document.body.style.overflow = 'hidden';
         }
@@ -47,7 +47,7 @@ export const useMenu = ({
             document.addEventListener('keydown', handleKeyDown);
         }
 
-        if (closeOnClickOutside) {
+        if (closeOnClickOutside && isOpen) {
             document.addEventListener('mousedown', handleClickOutside);
         }
 
@@ -60,7 +60,7 @@ export const useMenu = ({
                 document.removeEventListener('keydown', handleKeyDown);
             }
 
-            if (closeOnClickOutside) {
+            if (closeOnClickOutside && isOpen) {
                 document.removeEventListener('mousedown', handleClickOutside);
             }
         }
