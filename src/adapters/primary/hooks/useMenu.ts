@@ -26,7 +26,7 @@ export const useMenu = ({
     useEffect(() => {
         let originalStyle = '';
         if (preventScroll && isOpen) {
-            originalStyle = document.body.style.overflow;
+            originalStyle = window.getComputedStyle(document.body).overflow;
             document.body.style.overflow = 'hidden';
         }
 
