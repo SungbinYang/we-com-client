@@ -14,9 +14,9 @@ const MenuItem: FC<MenuItemProps> = ({item, isMobile = false, onClick}) => {
 
     if (isMobile) {
         return (
-            <li className="hover:bg-gray-50 rounded-lg transition-colors">
+            <li className="hover:bg-blue-500 rounded-lg transition-colors">
                 <a
-                    className="flex items-center py-3 px-4 text-gray-700 rounded-lg dark:text-white"
+                    className="flex items-center py-3 px-4 text-gray-700 rounded-lg dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     href={path}
                     onClick={onClick}
                 >
@@ -30,10 +30,11 @@ const MenuItem: FC<MenuItemProps> = ({item, isMobile = false, onClick}) => {
     return (
         <a
             className={isSignUp
-                ? "text-white bg-blue-500 hover:bg-blue-600 font-medium py-2 px-4 rounded-lg transition-colors"
-                : "text-gray-900 hover:text-blue-600 font-medium dark:text-white"
+                ? "text-white bg-blue-500 hover:bg-blue-600 font-medium py-2 px-4 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-300"
+                : "text-gray-900 hover:text-blue-600 font-medium dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-300"
             }
             href={path}
+            aria-current={location.pathname === path ? "page" : undefined}
         >
             {label}
         </a>
